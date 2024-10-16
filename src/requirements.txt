@@ -1,5 +1,7 @@
 botbuilder-core>=4.14.0
+botbuilder-dialogs>=4.14.0
 botbuilder-schema>=4.14.0
 flask>=2.0.1
 asyncio>=3.4.3
+sqlite3
 
