@@ -45,6 +45,14 @@ class MenuDatabase:
         conn.close()
         return {'id': item[0], 'name': item[1], 'description': item[2], 'price': item[3], 'category': item[4]} if item else None
 
+    def get_item_by_id(self, id: int) -> Dict:
+        conn = sqlite3.connect(self.db_file)
+        cursor = conn.cursor()
+        cursor.execute('SELECT * FROM menu_items WHERE id = ?', (id,))
+        item = cursor.fetchone()
+        conn.close()
+        return {'id': item[0], 'name': item[1], 'description': item[2], 'price': item[3], 'category': item[4]} if item else None
+
     def update_item(self, id: int, name: str, description: str, price: float, category: str):
         conn = sqlite3.connect(self.db_file)
         cursor = conn.cursor()
